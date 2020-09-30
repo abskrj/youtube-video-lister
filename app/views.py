@@ -1,9 +1,7 @@
 from app import app, collection, cache
 from flask import render_template, request, redirect, url_for
-from flask_wtf.csrf import CsrfProtect
 import re
 from json import loads
-import dateutil
 
 @app.route("/")
 def index():
