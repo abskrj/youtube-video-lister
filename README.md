@@ -4,7 +4,7 @@ A python app which searchs predefined query on YouTube using YT Data API and sav
 
 It searches asynchronously in backgroud using Python asyncio and threading library.
 
-Predefined search query: "GDP"
+Predefined search query: "game"
 
 Time Interval for searching: 60sec
 
