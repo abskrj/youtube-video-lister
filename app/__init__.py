@@ -12,7 +12,7 @@ import datetime
 SECRET_KEY = os.urandom(32)
 
 app = Flask(__name__)
-# cache = Cache(app, config={"CACHE_TYPE": "filesystem", 'CACHE_DIR': 'cache-directory', 'CACHE_THRESHOLD': 500})
+cache = Cache(app, config={"CACHE_TYPE": "filesystem", 'CACHE_DIR': 'cache-directory', 'CACHE_THRESHOLD': 500})
 
 app.config['SECRET_KEY'] = SECRET_KEY
 
@@ -25,13 +25,18 @@ if MongoURI is None:
 
 client = pymongo.MongoClient(MongoURI)
 
+# Selecting database
 db = client.fampay
+
+# Selecting collection
 collection = db.ytvid
 
+# Custom templat filter to convert time format
 @app.template_filter()
 def fmdatetime(value):
     return datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ")
 
+# Function to insert data into db
 def data_insert_to_db(incoming_data):
     """
     Function to insert video data to database.
@@ -64,14 +69,16 @@ async def get_data_from_youtube():
     Function to get data from Youtube useing API.
     """
     while True:
-        query = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=date&q=football&key=AIzaSyBlR2Av2WHgV6yDlLLllJXBUL2GdyyCuOE"
+        query = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=date&q=gdp&key=AIzaSyBlR2Av2WHgV6yDlLLllJXBUL2GdyyCuOE"
         try:
             res = get(query)
         except Exception as e:
             print(e)
         
         if res.status_code != 200:
-            continue
+            print(res.content)
+            if res.status_code == 403:
+                query = 
 
         res = res.content.decode("utf-8")
         

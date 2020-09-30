@@ -15,8 +15,10 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/abhishekraj272/witty@latest/files/img.png" type="image/gif" sizes="16x16">
 
-    <title>YT Vids</title>
+
+    <title>Mini YT LOL</title>
 
     <style>
       a {
@@ -35,17 +37,64 @@
   <body>
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
+
       <a class="navbar-brand" href="#">
         <img
-          src="/docs/4.5/assets/brand/bootstrap-solid.svg"
+          src="https://cdn.jsdelivr.net/gh/abhishekraj272/witty@latest/files/img.png"
           width="30"
           height="30"
           class="d-inline-block align-top"
           alt=""
           loading="lazy"
         />
-        YT Vids
+        Mini YT LOL
       </a>
+
+      <form class="form-inline" action="" method="GET">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Start From"
+          aria-label="Start"
+          name="start"
+          value="0"
+          required
+        />
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Max Results"
+          aria-label="Max Results"
+          name="maxResults"
+          value="10"
+          required
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Filter
+        </button>
+      </form>
+
+      <li class="nav-item dropdown mr-5">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Sort By
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="?invertList=1&sortBy=publishedDate&">Published A-Z</a>
+          <a class="dropdown-item" href="?invertList=-1&sortBy=publishedDate&">Published Z-A</a>
+          <a class="dropdown-item" href="?invertList=1&sortBy=channelName"> Channel A-Z</a>
+          <a class="dropdown-item" href="?invertList=-1&sortBy=channelName"> Channel Z-A</a>
+          <a class="dropdown-item" href="?invertList=1&sortBy=videoTitle"> Title A-Z</a>
+          <a class="dropdown-item" href="?invertList=-1&sortBy=videoTitle"> Title Z-A</a>
+        </div>
+      </li>
+
     </nav>
 
     <div class="container pb-5">
@@ -55,16 +104,19 @@
           {% for item in data %}
           <div class="card mt-5">
             <a href="https://www.youtube.com/watch?v={{ item['videoId'] }}">
-              <img src="{{ item['thumbnailUrl'] }}" class="card-img-top"/>
+              <img src="{{ item['thumbnailUrl'] }}" class="card-img-top" />
             </a>
             <div class="card-body">
               <h5 class="card-title">{{ item['videoTitle'] }}</h5>
-              <p class="card-text">
-                {{ item['description'] }}
-              </p>
+              <p class="card-text">{{ item['description'] }}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">{{ item['publishedAt']|fmdatetime }}</small> <small class="text-muted float-right">{{ item['channelName'] }}</small>
+              <small class="text-muted"
+                >{{ item['publishedAt']|fmdatetime }}</small
+              >
+              <small class="text-muted float-right"
+                >{{ item['channelName'] }}</small
+              >
               <div class="clearfix"></div>
             </div>
           </div>
@@ -74,22 +126,25 @@
       </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
+    <script>
+      const params = new URLSearchParams(window.location.search)
+      let start = params.get('start', 0)
+      let maxResults = params.get('maxResults', 10)
+
+      const prevBtJS = document.getElementById("prevBt")
+      const nextBtJS = document.getElementById("nextBt")
+
+      if (start == 0) {
+        prevBtJS.disabled = true
+      }
+      else {
+        prevBtJS.value = maxResults-start;
+      }
+      nextBtJS.value = start + maxResults; 
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    
   </body>
 </html>
