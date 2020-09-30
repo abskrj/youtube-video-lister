@@ -74,7 +74,7 @@ async def get_data_from_youtube():
     Function to get data from Youtube useing API.
     """
     # Generates random number between 1 and total APIs provided 
-    i = random.randint(1, TotalAPISet)
+    i = str(random.randint(1, TotalAPISet))
     
     # Gets the API Key from env var
     ytAPIKey = os.environ.get(f'YTAPIKey{i}', None)
@@ -101,7 +101,7 @@ async def get_data_from_youtube():
         
         else:
             # Please see line 26-30 for details
-            i = random.randint(1, TotalAPISet)
+            i = str(random.randint(1, TotalAPISet))
             ytAPIKey = os.environ.get(f'YTAPIKey{i}', None)
             query = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=date&q=gdp&key={ytAPIKey}"
 
