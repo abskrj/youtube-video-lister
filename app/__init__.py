@@ -21,7 +21,7 @@ cache = Cache(app, config={"CACHE_TYPE": "filesystem", 'CACHE_DIR': 'cache-direc
 MongoURI = os.environ.get('MONGODB_URI', None)
 
 # Set the total number of API Keys are provided for shuffeling
-TotalAPISet = os.environ.get('TotalAPISet', 1)
+TotalAPISet = int(os.environ.get('TotalAPISet', 1))
 
 if MongoURI is None:
     sys.exit("\n * MongoDB URI not provided.\n")
