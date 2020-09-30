@@ -49,5 +49,6 @@ heroku open
 1. Shuffles through the provided API Key set every time it searches.
 2. View function is cached for 60sec for every args provided.
 3. Sort & Filter Options are provided.
+4. The data fetched from YT are latest.
 
 Note: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) is running on a Free Tier MongoDB and Heroku server.
