@@ -20,7 +20,7 @@ cache = Cache(app, config={"CACHE_TYPE": "filesystem", 'CACHE_DIR': 'cache-direc
 # Gets the MongoDB URI from env var
 MongoURI = os.environ.get('MONGODB_URI', None)
 
-# Set the total number of API Keys are provided for shuffeling
+# Set the total number of API Keys are provided for shuffling
 TotalAPISet = int(os.environ.get('TotalAPISet', 1))
 
 if MongoURI is None:
@@ -71,7 +71,7 @@ def data_insert_to_db(incoming_data):
 # Async function for getting data from YT API
 async def get_data_from_youtube():
     """
-    Function to get data from Youtube useing API.
+    Function to get data from Youtube using API.
     """
     # Generates random number between 1 and total APIs provided 
     i = str(random.randint(1, TotalAPISet))
