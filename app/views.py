@@ -18,3 +18,7 @@ def dashboard():
     data = collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults))
     
     return render_template("index.html", data=data)
+
+@app.route("/reqbin-verify.txt")
+def reqbin():
+    return "", 200
