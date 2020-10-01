@@ -51,4 +51,9 @@ heroku open
 3. Sort & Filter Options are provided.
 4. The data fetched from YT are latest.
 
+## Tools - Used:
+1.Flask
+2.Pymongo
+3.Flask Caching
+
 Note: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) is running on a Free Tier MongoDB and Heroku server.
