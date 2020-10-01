@@ -8,7 +8,15 @@ Predefined search query: "game"
 
 Time Interval for searching: 60sec
 
-### Live: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) - Hosted on Heroku
+## Table of Contents
+
+-   [Starting Server Locally](#startingserverlocally)
+-   [Deploying on Heroku](#deployingonheroku)
+-   [Features](#features)
+-   [Queries Available](#queriesavailable)
+-   [Tools Used](#toolsused)
+-   [Development](#development)
+
 
 ## Starting Server Locally
 ```bash
@@ -63,3 +71,14 @@ heroku open
 3.Flask Caching
 
 Note: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) is running on a Free Tier MongoDB and Heroku server.
+
+**Screenshot**
+![Screenshot](https://github.com/UshasriMavuri1999/youtube-video-lister/blob/master/image/screenshot.png)
+
+***Live: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) - Hosted on Heroku***
+
+### Development
+
+Want to contribute? Great!
+
+This repository is the starter code for you. Therefore, I would like to accept your pull requests 😎
