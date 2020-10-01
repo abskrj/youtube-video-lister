@@ -51,6 +51,12 @@ heroku open
 3. Sort & Filter Options are provided.
 4. The data fetched from YT are latest.
 
+## Queries Available
+1. ?invertList=
+2. ?maxResults=
+3. ?sortBy=
+4. ?start=
+
 ## Tools - Used:
 1.Flask
 2.Pymongo
