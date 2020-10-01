@@ -1,4 +1,4 @@
-from app import app, collection, cache
+from app import app, collection, cache, client
 from flask import render_template, request, redirect, url_for
 import re
 from json import loads
@@ -22,3 +22,15 @@ def dashboard():
 @app.route("/reqbin-verify.txt")
 def reqbin():
     return "", 200
+
+@app.route("/status")
+def status()
+    return "Up and Running ;)", 200
+
+@app.route("database-info")
+def database_info()
+    try:
+        client.server_info()
+    except Exception as e:
+        return str(e), 200
+    return "Database up and running", 200
