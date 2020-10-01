@@ -60,15 +60,18 @@ heroku open
 4. The data fetched from YT are latest.
 
 ## Queries Available
-1. ?invertList=
-2. ?maxResults=
-3. ?sortBy=
-4. ?start=
+ -   ?invertList=
+ -   ?maxResults=
+ -  ?sortBy=
+ -  ?start=
 
-## Tools - Used:
-1.Flask
-2.Pymongo
-3.Flask Caching
+## Tools Used
+1) Flask
+2) Pymongo
+3) Flask Caching
+4) HTML, CSS & JS
+5) os, random, datetime, requests, asyncio, json libraries
+
 
 Note: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) is running on a Free Tier MongoDB and Heroku server.
 
