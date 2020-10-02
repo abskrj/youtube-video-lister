@@ -15,8 +15,23 @@ def dashboard():
     maxResults = request.args.get('maxResults', 10)
     sortBy = request.args.get('sortBy', 'publishedAt')
     start = request.args.get('start', 0)
-    data = collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults))
 
+    ## string entered by user is being sent with the key 'srch'
+    search = request.args.get('srch', None)
+
+    if search==None:
+
+        data = collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults))
+
+    else:
+
+        data = []
+
+    ## traversing through the sorted data and searching the 'srch' string in "videoTitle" values
+        for i in collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults)):
+            if search.lower() in i["videoTitle"].lower():
+                data.append(i)
+    
     return render_template("index.html", data=data)
 
 @app.route("/reqbin-verify.txt")
@@ -47,7 +62,8 @@ def status():
         setup=setup
     )
 
-@app.route("database-info")
+
+@app.route("/database-info")
 def database_info():
     try:
         client.server_info()
