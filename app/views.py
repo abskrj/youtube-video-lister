@@ -4,11 +4,9 @@ import os
 import random
 import pymongo
 
-
 @app.route("/")
 def index():
     return redirect(url_for('dashboard'))
-
 
 @app.route("/dashboard")
 @cache.cached(timeout=60, query_string=True)
@@ -18,19 +16,30 @@ def dashboard():
     sortBy = request.args.get('sortBy', 'publishedAt')
     start = request.args.get('start', 0)
 
-    data = collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults))
+    ## string entered by user is being sent with the key 'srch'
+    search = request.args.get('srch', None)
 
+    if search==None:
+
+        data = collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults))
+
+    else:
+
+        data = []
+
+    ## traversing through the sorted data and searching the 'srch' string in "videoTitle" values
+        for i in collection.find().skip(int(start)).sort([(sortBy, int(invertList))]).limit(int(maxResults)):
+            if search.lower() in i["videoTitle"].lower():
+                data.append(i)
+    
     return render_template("index.html", data=data)
-
 
 @app.route("/reqbin-verify.txt")
 def reqbin():
     return "", 200
 
-
 @app.route("/status")
 def status():
-    database = False
     application = True
     setup = False
     MongoURI = os.environ.get('MONGODB_URI', None)
@@ -42,8 +51,7 @@ def status():
         setup = True
     try:
         client = pymongo.MongoClient(MongoURI)
-        if client.server_info() is not None:
-            database = True
+        database = True if client.server_info() is not None else False
     except:
         database = False
 
@@ -55,7 +63,7 @@ def status():
     )
 
 
-@app.route("database-info")
+@app.route("/database-info")
 def database_info():
     try:
         client.server_info()
