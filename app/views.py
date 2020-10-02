@@ -4,11 +4,9 @@ import os
 import random
 import pymongo
 
-
 @app.route("/")
 def index():
     return redirect(url_for('dashboard'))
-
 
 @app.route("/dashboard")
 @cache.cached(timeout=60, query_string=True)
@@ -36,15 +34,12 @@ def dashboard():
     
     return render_template("index.html", data=data)
 
-
 @app.route("/reqbin-verify.txt")
 def reqbin():
     return "", 200
 
-
 @app.route("/status")
 def status():
-    database = False
     application = True
     setup = False
     MongoURI = os.environ.get('MONGODB_URI', None)
@@ -56,8 +51,7 @@ def status():
         setup = True
     try:
         client = pymongo.MongoClient(MongoURI)
-        if client.server_info() is not None:
-            database = True
+        database = True if client.server_info() is not None else False
     except:
         database = False
 
