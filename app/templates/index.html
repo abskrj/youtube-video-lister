@@ -1,150 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/abhishekraj272/witty@latest/files/img.png" type="image/gif" sizes="16x16">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/abhishekraj272/witty@latest/files/img.png" type="image/gif"
+    sizes="16x16">
 
 
-    <title>Mini YT LOL</title>
+  <title>Mini YT LOL</title>
 
-    <style>
-      a {
-        color: #000000;
-        text-decoration: none;
-      }
+  <style>
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
 
-      a:hover {
-        color: #00a0c6;
-        text-decoration: none;
-        cursor: pointer;
-      }
-    </style>
-  </head>
+    a:hover {
+      color: #00a0c6;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
 
-  <body>
-    <!-- Image and text -->
-    <nav class="navbar navbar-light bg-light">
+<body>
+  <!-- Image and text -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-      <a class="navbar-brand" href="#">
-        <img
-          src="https://cdn.jsdelivr.net/gh/abhishekraj272/witty@latest/files/img.png"
-          width="30"
-          height="30"
-          class="d-inline-block align-top"
-          alt=""
-          loading="lazy"
-        />
-        Mini YT LOL
-      </a>
+    <a class="navbar-brand" href="#">
+      <img src="https://cdn.jsdelivr.net/gh/abhishekraj272/witty@latest/files/img.png" width="30" height="30"
+        class="d-inline-block align-top" alt="" loading="lazy" /> Mini YT LOL</a>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
       <form class="form-inline" action="" method="GET">
-        <input
-          class="form-control mr-sm-2"
-          type="text"
-          placeholder="Start From"
-          aria-label="Start"
-          name="start"
-          value="0"
-          required
-        />
-        <input
-          class="form-control mr-sm-2"
-          type="text"
-          placeholder="Max Results"
-          aria-label="Max Results"
-          name="maxResults"
-          value="10"
-          required
-        />
+        <input class="form-control mr-sm-2" type="text" placeholder="Start From" aria-label="Start" name="start"
+          value="0" required />
+        <input class="form-control mr-sm-2" type="text" placeholder="Max Results" aria-label="Max Results"
+          name="maxResults" value="10" required />
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
           Filter
         </button>
       </form>
-
-      <li class="nav-item dropdown mr-5">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Sort By
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="?invertList=1&sortBy=publishedDate&">Published A-Z</a>
-          <a class="dropdown-item" href="?invertList=-1&sortBy=publishedDate&">Published Z-A</a>
-          <a class="dropdown-item" href="?invertList=1&sortBy=channelName"> Channel A-Z</a>
-          <a class="dropdown-item" href="?invertList=-1&sortBy=channelName"> Channel Z-A</a>
-          <a class="dropdown-item" href="?invertList=1&sortBy=videoTitle"> Title A-Z</a>
-          <a class="dropdown-item" href="?invertList=-1&sortBy=videoTitle"> Title Z-A</a>
-        </div>
-      </li>
-
-    </nav>
-
-    <div class="container pb-5">
-      <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-6">
-          {% for item in data %}
-          <div class="card mt-5">
-            <a href="https://www.youtube.com/watch?v={{ item['videoId'] }}">
-              <img src="{{ item['thumbnailUrl'] }}" class="card-img-top" />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">{{ item['videoTitle'] }}</h5>
-              <p class="card-text">{{ item['description'] }}</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted"
-                >{{ item['publishedAt']|fmdatetime }}</small
-              >
-              <small class="text-muted float-right"
-                >{{ item['channelName'] }}</small
-              >
-              <div class="clearfix"></div>
-            </div>
+      
+      <ul class="navbar-nav mr-auto" style ="padding-left: 20px;">
+        <li class="nav-item dropdown mr-5">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Sort By
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="?invertList=1&sortBy=publishedDate&">Published A-Z</a>
+            <a class="dropdown-item" href="?invertList=-1&sortBy=publishedDate&">Published Z-A</a>
+            <a class="dropdown-item" href="?invertList=1&sortBy=channelName"> Channel A-Z</a>
+            <a class="dropdown-item" href="?invertList=-1&sortBy=channelName"> Channel Z-A</a>
+            <a class="dropdown-item" href="?invertList=1&sortBy=videoTitle"> Title A-Z</a>
+            <a class="dropdown-item" href="?invertList=-1&sortBy=videoTitle"> Title Z-A</a>
           </div>
-          {% endfor %}
-        </div>
-        <div class="col-sm-2"></div>
-      </div>
+        </li>
+      </ul>
+      
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
     </div>
+  </nav>
 
-    <script>
-      const params = new URLSearchParams(window.location.search)
-      let start = params.get('start', 0)
-      let maxResults = params.get('maxResults', 10)
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        {% for item in data %}
+        <div class="card mt-5">
+          <a href="https://www.youtube.com/watch?v={{ item['videoId'] }}">
+            <img src="{{ item['thumbnailUrl'] }}" class="card-img-top" />
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ item['videoTitle'] }}</h5>
+            <p class="card-text">{{ item['description'] }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{ item['publishedAt']|fmdatetime }}</small>
+            <small class="text-muted float-right">{{ item['channelName'] }}</small>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
 
-      const prevBtJS = document.getElementById("prevBt")
-      const nextBtJS = document.getElementById("nextBt")
+  <script>
+    const params = new URLSearchParams(window.location.search)
+    let start = params.get('start', 0)
+    let maxResults = params.get('maxResults', 10)
 
-      if (start == 0) {
-        prevBtJS.disabled = true
-      }
-      else {
-        prevBtJS.value = maxResults-start;
-      }
-      nextBtJS.value = start + maxResults; 
-    </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    
-  </body>
+    const prevBtJS = document.getElementById("prevBt")
+    const nextBtJS = document.getElementById("nextBt")
+
+    if (start == 0) {
+      prevBtJS.disabled = true
+    }
+    else {
+      prevBtJS.value = maxResults - start;
+    }
+    nextBtJS.value = start + maxResults; 
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+
+</body>
+
 </html>
