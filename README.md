@@ -1,4 +1,11 @@
 # YouTube Video Lister
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/abhishekraj272/badges/)
+![GitHub stars](https://img.shields.io/github/stars/abhishekraj272/youtube-video-lister?style=social)
+![GitHub forks](https://img.shields.io/github/forks/abhishekraj272/youtube-video-lister?style=social)
+[![GitHub contributors](https://img.shields.io/github/contributors/abhishekraj272/youtube-video-lister.svg)](https://GitHub.com/abhishekraj272/youtube-video-lister/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/abhishekraj272/youtube-video-lister.svg)](https://GitHub.com/abhishekraj272/youtube-video-lister/issues/)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/abhishekraj272/youtube-video-lister.svg)](https://GitHub.com/abhishekraj272/youtube-video-lister/pull/)
+
 
 A python app which searchs predefined query on YouTube using YT Data API and saves it in MongoDB and lists it on dashboard.
 
@@ -8,7 +15,15 @@ Predefined search query: "game"
 
 Time Interval for searching: 60sec
 
-### Live: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) - Hosted on Heroku
+## Table of Contents
+
+-   [Starting Server Locally](#startingserverlocally)
+-   [Deploying on Heroku](#deployingonheroku)
+-   [Features](#features)
+-   [Queries Available](#queriesavailable)
+-   [Tools Used](#toolsused)
+-   [Development](#development)
+
 
 ## Starting Server Locally
 ```bash
@@ -52,14 +67,28 @@ heroku open
 4. The data fetched from YT are latest.
 
 ## Queries Available
-1. ?invertList=
-2. ?maxResults=
-3. ?sortBy=
-4. ?start=
+ -   ?invertList=
+ -   ?maxResults=
+ -  ?sortBy=
+ -  ?start=
 
-## Tools - Used:
-1.Flask
-2.Pymongo
-3.Flask Caching
+## Tools Used
+1) Flask
+2) Pymongo
+3) Flask Caching
+4) HTML, CSS & JS
+5) os, random, datetime, requests, asyncio, json libraries
+
 
 Note: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) is running on a Free Tier MongoDB and Heroku server.
+
+**Screenshot**
+![Screenshot](https://github.com/UshasriMavuri1999/youtube-video-lister/blob/master/image/screenshot.png)
+
+***Live: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) - Hosted on Heroku***
+
+### Development
+
+Want to contribute? Great!
+
+This repository is the starter code for you. Therefore, I would like to accept your pull requests 😎
