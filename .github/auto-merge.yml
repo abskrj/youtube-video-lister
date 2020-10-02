@@ -16,7 +16,5 @@ blockingLabels:
 rules:
 - minApprovals:
     OWNER: 1
-- requiredLabels:
-  - merge
 
 mergeCommitMessage: " bot merged {title}"
