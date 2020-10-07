@@ -92,5 +92,3 @@ Note: [Mini YT LOL](https://mini-yt-lol.herokuapp.com/dashboard) is running on a
 Want to contribute? Great!
 
 This repository is the starter code for you. Therefore, I would like to accept your pull requests 😎
-
-test test test!!
