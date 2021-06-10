@@ -7,7 +7,7 @@
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/abhishekraj272/youtube-video-lister.svg)](https://GitHub.com/abhishekraj272/youtube-video-lister/pull/)
 
 
-A python app which searchs predefined query on YouTube using YT Data API and saves it in MongoDB and lists it on dashboard.
+A python app that searches a predefined query on YouTube using YT Data API and saves it in MongoDB and lists it on the dashboard.
 
 It searches asynchronously in backgroud using Python asyncio and threading library.
 
