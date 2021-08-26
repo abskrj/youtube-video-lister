@@ -57,7 +57,7 @@ heroku config:set YTAPIKey1=<YTAPIKey1>
 
 git push heroku master
 
-heroku open
+heroku open:-
 ```
 
 ## Features
